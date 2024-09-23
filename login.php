@@ -17,7 +17,11 @@
                 $_SESSION['user_id'] = $user['id'];
                 header("Location: index.php");
                 exit;
+            } else{
+                $error = "Niepoprawne hasło!";
             }
+        }else{
+            $error = "Użytkownik nie istnieje!";
         }
-    }
+    } 
 ?>
