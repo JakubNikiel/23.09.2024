@@ -28,5 +28,18 @@ $result = $query=>$get_result();
     <h1>Witaj! Zarządaj swoimi plikami PDF</h1>
 
     <h2>Twoje pliki PDF:</h2>
+    <ul>
+        <?php while($file = $result->fetch_assoc()): ?>
+            <li><?php echo $file['filename']; ?> - <?php echo $file['upload_time']; ?></li>
+            <?php endwhile; ?>
+    </ul>
+
+    <form action="php/upload.php" method="post" enctype="multipart/form-data">
+        <label for="pdf_file">Dodaj nowy plik PDF:</label>
+        <input type="file" name="pdf_file" id="pdf_file" accept=".pdf" required>
+        <button type="sumbit">Wyślij</button>
+    </form>
+
+    <a href="php/logout.php">Wyloguj się</a>
 </body>
 </html>
